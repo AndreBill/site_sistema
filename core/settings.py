@@ -79,6 +79,7 @@ THIRD_APPS = [ # são as Lib/app que instalamos no projeto
 PROJECT_APPS = [ # são os apps que criamos no projeto 
     'apps.base', 
     'apps.pages',
+    'apps.contas',
     # 'apps.myapp',
 ]
 
@@ -119,6 +120,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
+AUTH_USER_MODEL = 'contas.MyUser'  # Define o modelo de usuário personalizado
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
