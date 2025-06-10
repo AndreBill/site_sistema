@@ -78,7 +78,8 @@ THIRD_APPS = [ # são as Lib/app que instalamos no projeto
 
 PROJECT_APPS = [ # são os apps que criamos no projeto 
     'apps.base', 
-  # 'apps.myapp',
+    'apps.pages',
+    # 'apps.myapp',
 ]
 
 # INSTALLED_APPS é a variavel que django entende para fazer a leitura dos aplicativos então verifica a nomencratura.
@@ -109,6 +110,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # Apps
+                'base.context_processors.comtext_social',  # Exemplo de context processor
             ],
         },
     },
@@ -231,3 +234,14 @@ EMAIL_PORT = os.getenv('EMAIL_PORT')
 EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS') 
 DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
+
+from django.contrib.messages import constants
+# Configuração de mensagens
+
+MESSAGE_TAGS = {
+	constants.ERROR: 'alert-danger',
+	constants.WARNING: 'alert-warning',
+	constants.DEBUG: 'alert-danger',
+	constants.SUCCESS: 'alert-success',
+	constants.INFO: 'alert-info',
+}
